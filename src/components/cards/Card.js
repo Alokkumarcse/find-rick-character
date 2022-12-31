@@ -1,11 +1,54 @@
-import React from 'react'
+import React from 'react';
+import styles from  './Card.module.scss';
 
-const Card = () => {
-  return (
-    <div className='col-3'>
-      Card
-   </div>
-  )
+
+function Card({ results }) {
+   let display;
+
+   if (results) {
+      // making card of results data
+      display = results.map((ele) => {
+         console.log(ele);
+         //desturcutring the data
+         let { id, name, image, location, status } = ele;
+         return (
+            <div key={ id } className='col-4 mb-4 position-relative'>
+               <div className= {styles.card}>
+                  <img src={ image } alt="" className={`img-fluid ${styles.img}`} />
+                  <div className='content' style={{padding:"10px"}} >
+                     <div className='fs-6 fw-bold mb-4'>{ name }</div>
+                     <div className='location'>
+                        <div className='fs-6'>Last location</div>
+                        <div className='fs-6'>{ location.name }</div>
+                     </div>
+                  </div>
+               </div>
+               {/* we write the condition here to show status in different color, use iife for to run only once */}
+               { (() => {
+                  if(status === "Dead"){ 
+                     return (
+                        <div className={`${styles.badge} position-absolute badge text-bg-danger`}>{status}</div>
+                     )
+                  }else if(status === "Alive"){
+                     return ( 
+                        <div className={`${styles.badge} position-absolute badge text-bg-success`}>{status}</div>
+                     )
+                  }else {
+                     return (
+                        <div className={`${styles.badge} position-absolute badge text-bg-secondary`}>{status}</div>
+                     )
+                  }
+               })()}
+              
+            </div>
+         );
+      });
+   } else {
+      display = "No Characters found /:(";
+   }
+
+   //returning the data in formate of cards
+   return <>{ display }</>;
 }
 
 export default Card
