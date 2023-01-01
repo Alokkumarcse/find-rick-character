@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 const Filter = () => {
   return (
-    <div>Filter</div>
+    <div className='col-3'>
+      <div className='text-center fs-bold mb-4'>Filter</div>
+    </div>
   )
 }
 

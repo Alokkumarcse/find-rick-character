@@ -51,9 +51,7 @@ function App() {
       <div className="container">
         <div className="row">
           {/* Render filter component to show filter characters*/}
-            <div className="col-3">
-              <Filter />
-            </div>
+          <Filter />
 
           {/* Render Card component to show all characters */}
             <div className="col-8">
@@ -64,7 +62,7 @@ function App() {
         </div>
       </div>
       {/* pagination component renderd here */}
-      <Pagination pageNumber={pageNumber} setPageNumber={setPageNumber} />
+      <Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber} />
     </div>
   );
 }
