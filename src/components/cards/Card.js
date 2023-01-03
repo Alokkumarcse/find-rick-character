@@ -9,17 +9,17 @@ function Card({ results }) {
       // making card of results data
       display = results.map((ele) => {
          console.log(ele);
-         //desturcutring the data
+         //destructuring the data
          let { id, name, image, location, status } = ele;
          return (
             <div key={ id } className='col-4 mb-4 position-relative'>
                <div className= {styles.card}>
                   <img src={ image } alt="" className={`img-fluid ${styles.img}`} />
                   <div className='content' style={{padding:"10px"}} >
-                     <div className='fs-6 fw-bold mb-4'>{ name }</div>
+                     <div className={styles.fs3}>{ name }</div>
                      <div className='location'>
-                        <div className='fs-6'>Last location</div>
-                        <div className='fs-6'>{ location.name }</div>
+                        <div className={`${styles.fs1} mt-3`}>Last location</div>
+                        <div className={styles.fs2}>{ location.name }</div>
                      </div>
                   </div>
                </div>

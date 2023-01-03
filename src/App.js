@@ -7,9 +7,30 @@ import Filter from "./components/filter/Filter";
 import Card from "./components/cards/Card";
 import Pagination from "./components/pagination/Pagination";
 import Search from "./components/search/Search";
-import { computeStyles } from "@popperjs/core";
+import Navbar from "./components/navbar/Navbar";
+
+import {BrowserRouter as  Router, Routes, Route } from "react-router-dom";
+import Episodes from "./pages/Episodes";
+import Location from "./pages/Location";
 
 function App() {
+  return (
+    // Setting how to route our app in different pages
+    <Router>
+        <div className="App">
+          {/* Navbar of app rendering here to stop navbar render when route to different page*/}
+          <Navbar />
+        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/episodes" element={<Episodes />} />
+          <Route path="/location" element={<Location />}/>
+        </Routes>
+    </Router>
+  )
+}
+
+const Home = () =>  {
   // useState() hooks to manage the state, initially our pageNumber is "1" and fetchedData is [].
   let [pageNumber, setPageNumber] = useState(1);
   // useState() hooks to implement search features
@@ -46,11 +67,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* Heading of our application */}
-      <h1 className="text-center ubuntu my-4">
-        Find <span className="text-primary">Rick-Morty</span> Characters
-      </h1>
-
+      
       {/* search box component render here */}
       <Search setSearch={setSearch} setPageNumber={setPageNumber} />
 
