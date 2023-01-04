@@ -24,6 +24,7 @@ const Navbar = () => {
                aria-controls="navbarNavAltMarkup"
                aria-expanded="false"  
                aria-label="Toggle navigation"
+               jsx="true"
             > 
                <style jsx>
                   {`
@@ -41,7 +42,7 @@ const Navbar = () => {
           
             <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                <div className="navbar-nav" style={{fontSize: "13px"}}>
-                  <NavLink activeClassName="active" to="/" className="nav-link active">Characters</NavLink>
+                  <NavLink to="/" className="nav-link active">Characters</NavLink>
                   <NavLink to="/episodes" className="nav-link">Episodes</NavLink>          
                   <NavLink to="/location" className="nav-link">Location</NavLink>
                </div>

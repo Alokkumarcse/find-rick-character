@@ -29,7 +29,7 @@ const FilterBtn = ({name, index, item, task, setPageNumber}) => {
                name="flexRadioDefault" 
                id= {`${name}-${index}`}
             />
-            <label class="btn btn-outline-primary" for={`${name}-${index}`}> {item} </label>
+            <label className="btn btn-outline-primary" htmlFor={`${name}-${index}`}> {item} </label>
          </div>
       </div>
    )

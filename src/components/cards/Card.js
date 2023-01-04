@@ -8,7 +8,7 @@ function Card({ results }) {
    if (results) {
       // making card of results data
       display = results.map((ele) => {
-         console.log(ele);
+         // console.log(ele);
          //destructuring the data
          let { id, name, image, location, status } = ele;
          return (
