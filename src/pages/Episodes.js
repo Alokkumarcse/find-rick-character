@@ -61,4 +61,4 @@ const Episodes = () => {
   )
 }
 
-export default Episodes
+export default Episodes;
