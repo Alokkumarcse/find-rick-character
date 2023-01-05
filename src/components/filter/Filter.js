@@ -14,7 +14,7 @@ const Filter = ({setStatus, setPageNumber, setSpecies, setGender}) => {
     window.location.reload(false);
   }
   return (
-    <div className='col-3'>
+    <div className='col-lg-3 col-12 mb-5'>
       <div className='text-center fs-bold mb-2'>Filter</div>
       <div 
         style={{cursor: "pointer"}}  

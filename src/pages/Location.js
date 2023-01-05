@@ -46,12 +46,12 @@ const Location = () => {
       </div>
 
       <div className='row'>    
-        <div className='col-3'>
+        <div className='col-lg-3 col-12'>
           <h4 className='text-center mb-4'>Pick Location</h4>
           <InputGroup setID={setID} name="Location" total={126} />
         </div>
  
-        <div className='col-8'>
+        <div className='col-lg-8 col-12'>
           <div className='row'>
             <Card pages="/location/" results={results}/>
           </div>

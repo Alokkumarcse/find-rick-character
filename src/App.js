@@ -88,14 +88,14 @@ const Home = () =>  {
             setPageNumber={setPageNumber}  
           />
           {/* Render Card component to show all characters */}
-          <div className="col-8">
+          <div className="col-lg-8 col-12 ">
             <div className="row"> 
               <Card page="/" results={results}/>
             </div>
           </div>
         </div>
       </div>
-      {/* pagination component renderd here */}
+      {/* pagination component render here */}
       <Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber} />
     </div>
   );
