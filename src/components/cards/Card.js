@@ -1,8 +1,9 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 import styles from  './Card.module.scss';
 
 
-function Card({ results }) {
+function Card({ results , page}) {
    let display;
 
    if (results) {
@@ -12,7 +13,12 @@ function Card({ results }) {
          //destructuring the data
          let { id, name, image, location, status } = ele;
          return (
-            <div key={ id } className='col-4 mb-4 position-relative'>
+            <Link  
+               style={{textDecoration:"none"}}
+               to={`${page}${id}`} 
+               key={ id } 
+               className='col-4 mb-4 position-relative text-dark'
+            >
                <div className= {styles.card}>
                   <img src={ image } alt="" className={`img-fluid ${styles.img}`} />
                   <div className='content' style={{padding:"10px"}} >
@@ -40,7 +46,7 @@ function Card({ results }) {
                   }
                })()}
               
-            </div>
+            </Link>
          );
       });
    } else {

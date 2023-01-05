@@ -12,6 +12,7 @@ import Navbar from "./components/navbar/Navbar";
 import {BrowserRouter as  Router, Routes, Route } from "react-router-dom";
 import Episodes from "./pages/Episodes";
 import Location from "./pages/Location";
+import CardDetails from "./components/cards/CardDetails";
 
 function App() {
   return (
@@ -23,8 +24,13 @@ function App() {
         </div>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/:id" element={<CardDetails />} />
+
           <Route path="/episodes" element={<Episodes />} />
+          <Route path="/episodes/:id" element={<CardDetails />} />
+
           <Route path="/location" element={<Location />}/>
+          <Route path="/location/:id" element={<CardDetails />} />
         </Routes>
     </Router>
   )
@@ -55,7 +61,7 @@ const Home = () =>  {
   // Fetch data via making api call using useEffect() to perfrom the api call side effect
   const baseUrl = 'https://rickandmortyapi.com/api';
   let api = `${baseUrl}/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
-  console.log(api);
+  // console.log(api);
   
   // UseEffect() render the component whenever any change happen in api
   useEffect(() => {
@@ -67,7 +73,7 @@ const Home = () =>  {
 
   return (
     <div className="App">
-      
+      <div className="text-center"> Characters</div>
       {/* search box component render here */}
       <Search setSearch={setSearch} setPageNumber={setPageNumber} />
 
@@ -84,7 +90,7 @@ const Home = () =>  {
           {/* Render Card component to show all characters */}
           <div className="col-8">
             <div className="row"> 
-              <Card results={results}/>
+              <Card page="/" results={results}/>
             </div>
           </div>
         </div>
